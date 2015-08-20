@@ -1,0 +1,17 @@
+{
+    "contents" : "\n# This is the user-interface definition of a Shiny web application.\n\nlibrary(shiny)\n\nshinyUI(pageWithSidebar(\n  \n  # Application title\n  headerPanel(\"Chi-Square to P-value Calculator\"),\n  \n  # Sidebar with inputs for p-value calculation\n  sidebarPanel(\n        numericInput('ChiSq','Chi-square value',0,min=-Inf,max=Inf,step=0.0001),\n        numericInput('Df','Degrees of Freedom',1,min=1,max=Inf,step=1),\n        p('Your chi-square score goes in the chi-square score box'), \n        p('Enter the degrees of freedom in the DF box (df = (NColumns-1)*(NRows-1) for chi-square test for independence)'),\n        p('You can also directly type the numeric inputs into the boxes instead of using the Slider')\n  ),\n  \n  # Show p-value and inference\n  mainPanel(\n      strong('This calculator will tell you the one-tailed (right-tail) probability value for a chi-square test'),\n      br(),\n      strong('(i.e., the area under the chi-square distribution from the chi-square value to positive infinity), \n             given the chi-square value and the degrees of freedom.'),\n      h3('Calculated P-value (right-tail)'),\n      verbatimTextOutput(\"pval\"),\n      h3('Calculated Significance'),\n      verbatimTextOutput(\"inference\"),\n      br(),br(),\n      p('If you have any doubts regarding the concepts, please do check these links below:'),\n      a('https://en.wikipedia.org/wiki/Chi-squared_distribution'),\n      br(),\n      a('https://en.wikipedia.org/wiki/P-value'),\n      br(),br(),\n      em('The author can be contacted on his Gmail ID: srikanthguhan')\n      )\n))\n",
+    "created" : 1439918029721.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "792358451",
+    "id" : "23CD43FF",
+    "lastKnownWriteTime" : 1440097298,
+    "path" : "C:/Users/ABC/datasciencecoursera/Shiny/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

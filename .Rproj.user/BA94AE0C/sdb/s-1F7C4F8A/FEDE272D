@@ -1,0 +1,17 @@
+{
+    "contents" : "\n# This is the server logic for a Shiny web application.\n#\n\nlibrary(shiny)\n\nshinyServer(function(input, output) {\n   \n  output$pval <- reactive({\n      if(is.na(input$ChiSq)) \"Please enter the Chi Square value\"\n      else if(is.na(input$Df)) \"Please enter the Degrees of Freedom\"\n      else pchisq(q = input$ChiSq, df = input$Df,lower.tail = F)\n      })\n    output$inference <- reactive({\n    if(is.na(input$ChiSq)) \"Please enter the Chi Square value\"\n        else if(is.na(input$Df)) \"Please enter the Degrees of Freedom\"\n        else if (pchisq(q = input$ChiSq, df = input$Df,lower.tail = F)>0.1) \"Not significant statistically\"\n        else if (pchisq(q = input$ChiSq, df = input$Df,lower.tail = F)>0.05) \"Significant at 10%\"\n        else if (pchisq(q = input$ChiSq, df = input$Df,lower.tail = F)>0.01) \"Significant at 5%\"\n        else \"Significant at 1%\"\n  })  \n})\n\n#' Tried not to calculate the p-value again and again for significance but\n#' could not find any method to save it as an intermediate variable. \n#' Kindly suggest if you know how to do it. Thanks! But hey I made it reactive.",
+    "created" : 1439918030166.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "202939033",
+    "id" : "FEDE272D",
+    "lastKnownWriteTime" : 1439926771,
+    "path" : "C:/Users/ABC/datasciencecoursera/Shiny/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
